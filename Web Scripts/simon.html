@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Simon</title>
+  <link rel="stylesheet" href="stylesheets/simonStyle.css">
+  <link rel="shortcut icon" href="images/gkLogo.png"/>
+</head>
+<body>
+  <div id="red"></div>
+  <div id="green"></div>
+  <div id="blue"></div>
+  <div id="yellow"></div>
+
+  <script type="text/javascript">
+    function simonTracker()
+    {
+	this.score = 0;
+        this.rover = 0;
+        this.stopShow = true;
+	this.pattern = [];
+        this.update = function() {
+	  let rand = Math.floor(Math.random()*4);
+	  this.pattern.push(rand);
+	  this.score = this.score + 1;
+          this.stopShow = false;
+	}
+        this.show = function() {
+          var r = document.querySelector("#red");
+	  var g = document.querySelector("#green");
+	  var b = document.querySelector("#blue");
+	  var y = document.querySelector("#yellow");
+          var time = 600;
+	  if(!this.stopShow && !(r.style.backgroundColor == "purple" || g.style.backgroundColor == "purple" || b.style.backgroundColor == "purple" || y.style.backgroundColor == "purple"))
+	  {
+	      if(this.pattern[this.rover] == 0)
+	      {
+                r.style.backgroundColor = "purple";
+		setTimeout(function(){ r.style.backgroundColor = "red"; }, time);
+	      }
+	      if(this.pattern[this.rover] == 1)
+	      {
+	        g.style.backgroundColor = "purple";
+	        setTimeout(function(){ g.style.backgroundColor = "green"; }, time);
+	      }
+	      if(this.pattern[this.rover] == 2)
+	      {
+                b.style.backgroundColor = "purple";
+	        setTimeout(function(){ b.style.backgroundColor = "blue"; }, time);
+	      }
+	      if(this.pattern[this.rover] == 3)
+	      {
+	        y.style.backgroundColor = "purple";
+	        setTimeout(function(){ y.style.backgroundColor = "yellow"; }, time);
+	      }
+              if(this.rover + 1 == this.score)
+	      {
+                this.rover = 0;
+                this.stopShow = true;
+              }
+	      else
+              { this.rover = this.rover + 1; }
+	  }
+         }
+       }
+    var listenPattern = [];
+    var stopListen = true;
+    function clickAnimation(x)
+    {
+        if(!stopListen)
+        { listenPattern.push(x); }
+        var r = document.querySelector("#red");
+        var g = document.querySelector("#green");
+        var b = document.querySelector("#blue");
+        var y = document.querySelector("#yellow");
+	if(x == 0)
+	{
+	  r.style.backgroundColor = "purple";
+	  setTimeout(function(){ r.style.backgroundColor = "red"}, 500);
+	}
+	if(x == 1)
+	{
+	  g.style.backgroundColor = "purple";
+	  setTimeout(function(){g.style.backgroundColor = "green"}, 500);
+	}
+	if(x == 2)
+	{
+	  b.style.backgroundColor = "purple";
+	  setTimeout(function(){b.style.backgroundColor = "blue"}, 500);
+	}
+	if(x == 3)
+	{
+	  y.style.backgroundColor = "purple";
+	  setTimeout(function(){y.style.backgroundColor = "yellow"}, 500);
+	}
+    }
+
+      document.querySelector("#red").onclick = function() {clickAnimation(0)};
+      document.querySelector("#green").onclick = function() {clickAnimation(1)};
+      document.querySelector("#blue").onclick = function() {clickAnimation(2)};
+      document.querySelector("#yellow").onclick = function() {clickAnimation(3)};
+    var gameOver = false;
+    var st = new simonTracker();
+    setInterval(function(){ st.show(); }, 500);
+    st.update();
+    function resetGame()
+    {
+      st.pattern = []
+      st.score = 0;
+      gameOver = false;
+      listenPattern = [];
+      stopListen = true;
+      st.update();
+    }
+    function gameHandler()
+    {
+      if(gameOver)
+      {
+	alert("Game Over\n Score: " + st.score.toString());
+        resetGame();
+      }
+      else if(st.stopShow)
+      {
+        stopListen = false;
+      }
+      if(listenPattern.length == st.pattern.length)
+      {
+	for(var pos = 0; pos < st.score; pos++)
+	{
+          console.log(st.pattern[pos]);
+          console.log(listenPattern[pos]);
+	  if(st.pattern[pos] != listenPattern[pos])
+	  {  gameOver = true; }
+        }
+        if(!gameOver)
+	{
+	  listenPattern = [];
+          stopListen = true;
+          st.update();
+	}
+      }
+    }
+    setInterval(function() { gameHandler(); }, 100);
+  </script>
+</body>
+</html>

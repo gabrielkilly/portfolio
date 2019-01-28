@@ -1,0 +1,11 @@
+#1 - For this problem you will write a cell division discrete event simulation that is based on a research project done in the math department a number of years ago looking at population growth in cell cultures. The code you submit needs to have a function with the following signature.
+
+int numCells(double endTime, double minSplit, double maxSplit);
+
+At time 0 you start with one cell and it splits immediately. Each time a cell splits, both halves will split again at some random time in the future. That time between splits is uniformly distributed between minSplit and maxSplit. Each cell from a split will use a different random value for its next split time. I want you to generate the random value using the following expression. maxSplit > minSplit > 0
+
+minSplit + rand()*(maxSplit-minSplit)/RAND_MAX;
+
+Both rand and RAND_MAX are defined in cstdlib. Do NOT call srand in the code you submit. I will be setting the seed myself for testing purposes. Your function should return the number of cells you have when the next split time is greater than endTime.
+
+Note that for your function to return the same answer as mine, you have to pull random numbers for splits in the order that the cells split.

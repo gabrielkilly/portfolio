@@ -1,0 +1,36 @@
+#1 - Traveling Salesman Pete has amassed a dominant position in a vast empire of retail outlets for low quality goods.
+He needs to know how to get from his house to various places in the minimum distance and what that distance is. He
+is going to provide you with information on the distances between nearby locations and wants you to figure out the
+rest.
+
+tuple<vector<int>,vector<int>> distanceFromHome(
+    const vector<vector<tuple<int,int>>> &nearbyDistances);
+
+The parameter, nearbyDistances, is an adjacency list representation of the graph. The first index of the input is the
+location that Pete services. His house is at index 0. The vector for each location contains a tuple of indexes and distances.
+This first element in the returned tuple is distances from his home to each other location. The second vector is where you
+should come from to get to each vertex. That value should be -1 if you don't come there from anywhere. Note that distances
+can't be negative. You can have up to 2 million vertices and 200 million edges.
+
+This is a non-templated function so simply write a .cpp file.
+
+#2 - A local cross-country ski team is trying to determine some good routes through a plot of land that they have access to.
+They have had their team members all assign difficulties to branches of paths between junctions. The difficulty assignments
+can be negative for sections that are mostly downhill. They would like for you to return information on the difficulty in
+getting from any one location to any other location along the minimum difficulty path as well as information on those paths.
+
+tuple<vector<vector<int>>,vector<vector<int>>> crossCountryChallenge(
+    const vector<vector<int>> &difficulties);
+
+The input is a complete matrix of difficulties. Note that it is not symmetric because the challenge of getting from point A
+to point B on skis might not be the same as going the other way around. Indeed, it might be possible to get from A to B, but
+not from B to A. If you can't get from one place to another they have given it a difficulty of 1 billion. The first element in
+the returned tuple should be a matrix of shortest path distances. The second element is a predecessor matrix for the routes in
+the shortest paths. The diagonal values in the predecessor matrix need to be -1. You can safely use 1 billion as the value of
+infinity. The maximum number of vertices in 500.
+
+This is a non-templated function so simply write a .cpp file.
+
+For more practice: https://projecteuler.net/problem=83
+On previous week's topic (topological sort): https://leetcode.com/problems/course-schedule-ii/?tab=Description
+More dynamic programming practice: https://leetcode.com/contest/leetcode-weekly-contest-22/problems/freedom-trail/

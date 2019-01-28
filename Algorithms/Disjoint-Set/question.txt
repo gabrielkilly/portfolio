@@ -1,0 +1,11 @@
+#2 Write a data structure for representing disjoint sets.
+
+template<typename T>
+class DisjointSet {
+    public:
+        DisjointSet(const T &data);
+        void unionSets(DisjointSet &ds);
+        const T &getMarker();
+};
+
+Put your code in a file called DisjointSet.h. Note that the way I have these methods set up with "getMarker" you probably want to have the "Find-Set" method from the book in your class as a private method that helps the others.

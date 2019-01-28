@@ -1,0 +1,136 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+        display: block;
+}
+body {
+        line-height: 1;
+	color: white;
+}
+ol, ul {
+        list-style: none;
+}
+blockquote, q {
+        quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+        content: '';
+        content: none;
+}
+
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+}
+body {
+	font-family: "Rozha One", sans-serif;
+	font-size: 8vh;
+	background-color: black;
+}
+#searchBox {
+	width: 80%;
+	height: 10vh;
+	border: 2px solid;
+	border-top: 0px;
+	border-left: 0;
+	border-right: 0;
+	border-color: white;
+	background-color: black;
+	color:white;
+	font-family: "IBM Plex Sans Condensed", sans-serif;
+	font-size: 3.8vh;
+}
+#search {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+#searchButton {
+  background-color: black;
+  width: 20%;
+  float: right;
+  position: absolute;
+  height: 10.4vh;
+  right: 0px;
+  font-size: 3.4vh;
+  color: white;
+  border: 2px solid;
+	border-top: 0px;
+	border-right: 0;
+	border-color: white;
+}
+
+input{
+	padding-left: 2vh;
+}
+.object h1 {
+	font-size: 5vh;
+  text-align: center;
+  font-family: "Rozha One", san-serif;
+}
+.object p {
+	font-size: 3vh;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "IBM Plex Sans Condensed", san-serif;
+  line-height: 1.3;
+}
+.others {
+  margin-left: 10px;
+  margin-top: -10px;
+}
+.others li {
+  display: inline-block;
+}
+.others li p {
+  font-size: 2.2vh;
+
+}
+.object {
+	height: auto;
+	padding-top: 2.3vh;
+	padding-bottom: 2.3vh;
+	border: 2px solid white;
+	border-top: 0;
+	border-right: 0;
+	border-left: 0;
+  padding-left: 20px;
+  padding-left: 20px;
+}
+.object a {
+	text-decoration: none;
+  color: white;
+}
+.object:hover {
+  background-color: #474644;
+  transition: 1s;
+}
+.bold {
+  font-weight: 700;
+}

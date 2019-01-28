@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>My Site</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="stylesheets/style.css">
+        <link rel="stylesheet" href="stylesheets/particleNames.css">
+        <link rel="shortcut icon" href="images/gkLogo.png"/>
+		<link href="https://fonts.googleapis.com/css?family=BioRhyme|Rozha+One|Suez+One" rel="stylesheet">
+  </head>
+  <body >
+    <main >
+                <div id="headerContainer">
+                        <div class = "particle" id ="par1"></div><div class = "particle" id ="par2"></div><div class = "particle" id ="par3"></div><div class = "particle" id ="par4"></div><div class = "particle" id ="par5"></div><div class ="particle" id ="par6"></div><div class = "particle" id ="par7"></div>
+                        <div class = "particle" id ="par8"></div><div class = "particle" id ="par9"></div><div class = "particle" id ="par10"></div><div class = "particle" id ="par11"></div><div class = "particle" id ="par12"></div><div class = "particle" id ="par13"></div><div class = "particle" id ="par14"></div><div class = "particle" id ="par15"></div><div class = "particle" id ="par16"></div>
+                        <div class = "particle" id ="par17"></div><div class = "particle" id ="par18"></div><div class = "particle" id ="par19"></div><div class = "particle" id ="par20"></div><div class = "particle" id ="par21"></div><div class = "particle" id ="par22"></div><div class = "particle" id ="par23"></div><div class = "particle" id ="par24"></div>
+
+
+
+                <h1 class="Absolute-Center changeable">Gabriel Killy</h1>
+                </div>
+                <nav>
+                        <ul>
+                                <li><a class="changeable" href="resume.html">Resume</a></li>
+                                <li><a class="changeable" href="projects.html">Projects</a></li>
+                                <li><a class="changeable" href="">Personal</a></li>
+                        </ul>
+                </nav>
+                <button id="addPar">Add Particle</button>
+        </main>
+        <!--For Particle Generator -->
+
+        <style id="stylePar1"></style><style id="stylePar2"></style><style id="stylePar3"></style><style id="stylePar4"></style><style id="stylePar5"></style><style id="stylePar6"></style><style id="stylePar7"></style><style id="stylePar8"></style><style id="stylePar9"></style><style id="stylePar10"></style>
+        <style id="stylePar11"></style><style id="stylePar12"></style><style id="stylePar13"></style><style id="stylePar14"></style><style id="stylePar15"></style><style id="stylePar16"></style><style id="stylePar17"></style><style id="stylePar18"></style><style id="stylePar19"></style><style id="stylePar20"></style>
+        <style id="stylePar21"></style><style id="stylePar22"></style><style id="stylePar23"></style><style id="stylePar24"></style>
+
+
+<script type="text/javascript" defer>
+                function colorChange () {
+                        let r = Math.floor(Math.random()*256);
+                        let g = Math.floor(Math.random()*256);
+                        let b = Math.floor(Math.random()*256);
+                        let newColor = "rgb(" + r.toString() + "," + g.toString() + "," + b.toString() + ")";
+                        document.querySelector("body").style.backgroundColor = newColor;
+                        var changeables = document.querySelectorAll(".changeable");
+                        var particles = document.querySelectorAll(".particle");
+                        var x;
+                        if((r + g + b) > 384)
+                        {
+
+                                for(x = 0; x < changeables.length; x++)
+                                	changeables[x].style.color = "black";
+				for(y = 0; y < particles.length; y++)
+				        particles[y].style.backgroundColor = "black";
+
+                        }
+                        else
+                        {
+                                for(x = 0; x < changeables.length; x++)
+                                        changeables[x].style.color = "white";
+				for(y = 0; y < particles.length; y++)
+                                        particles[y].style.backgroundColor = "white";
+                        }
+
+                }
+                function particleGenerator()
+                {
+                        this.particles = [];
+                        this.maxParticles = 20;
+                        this.count = 0;
+                        this.update = function() {
+                                var pos;
+
+                                for(pos = 1; pos <= this.count; pos ++)
+                                {
+                                        var posStr = pos.toString();
+                                        var par = document.querySelector("#par" + posStr);
+                                        var stylePar = document.querySelector("#stylePar" + posStr);
+                                        var newAnimation;
+                                        var newX, newXVec, newY;
+                                        //var particleClass = this.particles[pos - 1];
+                                        //console.log(par.getBoundingClientRect());
+                                        if(par.getBoundingClientRect().left < 0)
+					{
+                                                 newXVec = this.particles[pos-1].xVec * -1;
+                                                 newX = newXVec;
+                                                 par.style.marginLeft = newX.toString() + "%";
+                                                 this.particles[pos - 1].xTarget = newX;
+                                                 this.particles[pos - 1].xVec = newXVec;
+                                        }
+                                        if(par.getBoundingClientRect().right >= window.innerWidth)
+                                        {
+                                                newXVec = this.particles[pos-1].xVec * -1;
+                                                newX = Math.floor(window.innerWidth * (this.particles[pos-1].xVec / 100));
+                                                par.style.marginLeft = newX.toString() + "%";
+                                                this.particles[pos - 1].xTarget = newX;
+                                                this.particles[pos - 1].xVec = newXVec;
+                                        }
+                                        if(par.getBoundingClientRect().top <= 0)
+                                        {
+
+                                                newX = this.particles[pos-1].xTarget + this.particles[pos-1].xVec;
+                                                newY = 120;
+                                                par.style.marginLeft = newX.toString() + "%";
+                                                par.style.marginTop = newY.toString() + "%";
+                                                this.particles[pos - 1].xTarget = newX;
+                                                this.particles[pos - 1].yTarget = newY;
+                                        }
+                                        if(par.getBoundingClientRect().bottom >= window.innerHeight)
+                                        {
+                                                newX = this.particles[pos-1].xTarget + this.particles[pos-1].xVec;
+                                                newY = this.particles[pos-1].yTarget * -1;
+                                                par.style.marginLeft = newX.toString() + "%";
+                                                par.style.marginTop = newY.toString() + "%";
+                                                this.particles[pos - 1].xTarget = newX;
+                                                this.particles[pos - 1].yTarget = newY;
+                                        }
+
+                                }
+                        };
+
+                        this.initialize = function() {
+                                for(var pos = 1; pos <= this.maxParticles; pos++)
+                                {
+                                        var posStr = pos.toString();
+					var x = (Math.floor(Math.random() * 120) - 60);
+                                        var x1 = x;
+                                        var y = -70;
+                                        var s = Math.floor(Math.random() * 10)+5;
+                                        var p = new particle(x + 41, x1, y, s);
+                                        var newPar = document.querySelector("#stylePar" + posStr);
+                                        var object = "#par" + posStr + "{ -webkit-transition: " + s.toString() + "s; transition: " + s.toString() + " -webkit-transition-timing-function:linear; transition-timing-function: linear;";
+                                        newPar.innerHTML = object;
+                                        this.particles.push(p);
+                                }
+                        }
+
+                        this.push = function() {
+
+                                this.count = this.count + 1;
+                                par = document.querySelector("#par" + this.count.toString());
+                                par.style.marginLeft = this.particles[this.count - 1].xTarget.toString() + "%";
+                                par.style.marginTop = this.particles[this.count - 1].yTarget.toString() + "%";
+                                par.style.display = "block";
+                        };
+
+                }
+                function particle(x, x1, y, s, c)
+                {
+                        this.xVec = x1;
+                        this.xTarget = x;
+                        this.yTarget = y;
+                        this.speed = s;
+                }
+
+
+                var updateRunning = false;
+                const partButton = document.querySelector("#addPar");
+                var pg = new particleGenerator();
+                pg.initialize();
+                function runUpdate () {
+                        if (!updateRunning) {
+				updateRunning = true;
+                                setInterval(function(){ pg.update(); }, 10);
+                        }
+                }
+                partButton.addEventListener('click', function () {pg.push()}, false);
+                partButton.addEventListener('click', runUpdate, false);
+                setInterval(colorChange, 7000);
+        </script>
+  </body>
+<script></script>
+</html>

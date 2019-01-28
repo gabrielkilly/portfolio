@@ -1,0 +1,24 @@
+#1 - The city planners of Stupidville have this thing where they really like one way roads. Unfortunately, they aren't very good at planning them out and they have set up some really odd situations where you literally can't get one place from another. Lots of people in town simply ignore the rules and drive the wrong way occasionally, but you want to reduce this as much as possible. You have collected data on different locations that are significant to you and the one way direct connections. Now you need to write a program that tells you which groups of locations you can get around without breaking laws. So you want to return the different clusters of locations where each one can be reached from all the others without breaking a law.
+
+vector<set<int> > drivingLegal(const vector<vector<int> > &roadTo);
+
+The roadTo variable stores an adjacency list representation of the town. So roadTo.size() is the number of locations. Each subvector stores the indices of places you can get to directly via the one way roads. The input can have up to one million locations and 100 million different roads.
+
+No templates so call your .cpp whatever you want.
+
+https://www.youtube.com/watch?v=RpgcYiky7uw
+
+#2 - Recently one of the frat parties at UC (short for Underfunded College) got a little out of hand and some of the members
+took little joy rides on large construction machinery. The result of this escapade is that all the sidewalks were destroyed.
+The college lacks the funds to rebuild a proper sidewalk system. Instead, they are going to build the minimum set of sidewalks
+to connect all of the buildings. You are supposed to help them figure out what those sidewalks should be. They are giving you
+the locations of the buildings as x, y coordinates on the campus. You are supposed to return how many unit lengths of sidewalks
+they have to build along with a list of the buildings that are directly connected to get that.
+
+tuple<double,vector<tuple<int,int> > > sidewalkPlan(const vector<tuple<double, double> > &buildingLocations);
+
+The argument is a vector of tuples with one element for x and the other for y for each of the buildings. You are to assume the
+buildings have no spatial extent so they are joint points. The return is a tuple with the total length of sidewalk as the first
+element and a vector of tuples giving the indices of the buildings to make sidewalks between. The input can go up to 20,000
+buildings. (No idea how they build that many without proper funding, but somehow they did.) For the tuple<int,int> values that
+you return, the first value should be less than the second.

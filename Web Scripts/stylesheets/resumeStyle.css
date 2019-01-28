@@ -1,0 +1,259 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+        display: block;
+}
+body {
+        line-height: 1;
+	color: white;
+}
+ol, ul {
+        list-style: none;
+}
+blockquote, q {
+        quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+        content: '';
+        content: none;
+}
+
+table {
+        border-collapse: collapse;
+        border-spacing: 0;
+}
+#intro {
+	font-size: 3vh;
+
+}
+#leftCol {
+        display: block;
+        position: fixed;
+        width: 30%;
+        height: 100%;
+        background-color: black;
+	overflow: auto;
+	overflow-x: hidden;
+	font-family: 'Alegreya Sans', sans-serif;
+        font-size: 2.5vh;
+}
+#resumePic {
+	display: block;
+	height: 17vh;
+	max-width: 17vh;
+	margin: 0 auto;
+	margin-top: 20px;
+	border-radius: 200px;
+  border: 2px solid white;
+	background-color: white;
+}
+#intro h2 {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 25px;
+	color: white;
+}
+#leftCol section {
+	display: block;
+	margin: 0 auto;
+       //background-color: gray;
+	padding: 1.7vh 0px 1.7vh 0px;
+	width: 60%;
+       // font-size:16px;
+}
+#leftCol section div  {
+	//background-color: orange;
+	min-width: 200px;
+	height: 80%;
+        width: 80%;
+	margin: auto;
+}
+
+#leftCol section div ul li  {
+	color: white;
+	margin-top: 10px;
+}
+
+#leftCol section div ul li div {
+	margin-top: -15px;
+	}
+
+#leftCol section div ul li p {
+	text-align:center;
+	display:block;
+	margin-left: 30px;
+	}
+#leftCol h3 {
+	text-align: center;
+	font-size: 3vh;
+	display: block;
+	border: solid 1px;
+	margin: 0 auto;
+	width: 80%;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	margin-top: 1%;
+
+}
+#ed {
+	bottom: 29vh;
+}
+#ex {
+	bottom: 11vh;
+}
+#wp {
+	bottom: 28.5vh;
+  position: relative;
+	left: -2vh;
+}
+#wp1 {
+	position: relative;
+        left: -2vh;
+}
+#rightCol {
+    display: block;
+    width: 65%;
+    height: auto;
+    background-color: white;
+    margin-left: 32.5%;
+    color: black;
+    overflow: auto;
+    overflow-x: hidden;
+    font-family: 'Alegreya Sans', sans-serifi;
+}
+#rightIntro {
+    height: 100px;
+    background-color: yellow;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+#rightIntro h2 {
+	//font-size: 26px;
+}
+#rightCol section {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 2px solid;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    overflow-wrap: break-word;
+}
+#rightCol section > div {
+    width: 84vh;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+#rightCol section > div > h1 {
+    overflow-wrap: break-word;
+}
+#rightCol section > div > p {
+    overflow-wrap: break-word;
+}
+div:last-child > section  > div > ul > li:first-child {
+    position: relative;
+    bottom: 10px;
+    font-size: 3vh;
+    font-weight: 700;
+    color: #800000;
+    padding-right: 35px;
+    margin-left: 10px;
+    margin: auto;
+}
+#rightCol section div ul li{
+    display: inline-block;
+  //background-color: orange;
+}
+#rightCol section div ul li div ul {
+
+}
+#rightCol section div ul li div ul li {
+	display: block;
+	margin-top: 20px;
+}
+#rightCol section div ul li div ul li:first-child {
+	margin-top: 0px;
+}
+#rightCol section div ul li div ul li h1{
+	font-size: 2.7vh;
+}
+#rightCol section div ul li div ul li p {
+	display: block;
+	padding-top: 3px;
+        font-size: 2.3vh;
+}
+.bold {
+	font-weight: 700;
+}
+.leftM {
+	margin-left: 16.6vh;
+}
+@media screen and (max-width: 1270px) {
+	#leftCol {
+	    width: 100%;
+            position: static;
+            padding-bottom: 20px;
+	}
+        #rightCol {
+	    width: 100%;
+	    position: static;
+            margin-left: 0;
+	}
+	#rightCol section {
+	    padding-top: 0;
+	}
+	#rightCol section >  div {
+	    width: 100%;
+	}
+        #rightCol section div ul {
+	    display: block;
+            margin: auto;
+            width: 65vh;
+	    overflow-wrap: break-word;
+        }
+	#rightCol section div ul li{
+	    display: block;
+            margin-top: 20px;
+	}
+        #ed { position: static; bottom: 0;}
+        #ex { position: static; bottom: 0;}
+        #wp { position: static; bottom: 0; left: 0;}
+        #wp1{ position: static; left: 0; }
+
+}
+@media screen and (max-width: 382px) {
+	#rightCol section div ul {
+	    width: 100%;
+	    padding-left: 10px;
+	    padding-right: 10px;
+	}
+}

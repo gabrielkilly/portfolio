@@ -1,0 +1,33 @@
+This week is to be done in teams; see below for team assignment. Solving 1 problem gets full marks.
+Problems:
+(bonus(50 pts): solving one of the linear systems using two different algorithms, LU/LUP decomposition and another iterative method)
+#1 - Doc Brown is working on a new design for his flux capacitor. He has a bunch of new data that he wants to analyze. Unfortunately, the overpriced license on his software for doing curve fitting has expired. He has turned to you to write software that will do the job for him.
+
+template<class T,class F>
+vector<double> fitFuncs(const vector<T> &data,const vector<F> &functions);
+
+The type T will have members called .x and .y to get components of the data. The x and y will have type double. The type F is callable and takes a single double and returns a single double.
+
+To help you understand the use of this function, consider the example of doing a fit for some data to a quadratic. So you want the form a*x^2+b*x+c that comes as close as possible to the specified data points. Your function would be passed the data points as well as a vectors of functions that represent x^2, x, and 1. Your return vector would have the values of a, b, and c.
+
+Put your code in a file called "LinearFit.h".
+
+#2 - Remember back in High School when you had to balance chemical equations? It's time to make a computer do that for you. For this problem you will be passed an unbalanced form of a chemical equation. You are supposed to return the lowest integer multiples of coefficients that balance the equation.
+
+tuple<vector<int>,vector<int>> chemBalance(const string &equ);
+
+The unbalanced equations might look like this: "CH4+O2=H2O+CO2". Element names will be a single uppercase letter or one uppercase followed by one lowercase. The return value has the integer coefficients for the terms to the left of the equals sign in the first vector and those to the right in the second vector. For the example input you would return {{1,2},{2,1}}. This represents 1*CH4+2*O2=2*H2O+1*CO2.
+
+To understand how this relates to matrix math, consider the example above written in the following way: a*CH4+b*O2=c*H2O+d*CO2. Because the umber of elements of each type on each side must balance this leads to the following system of linear equations for C, H, and O respectively.
+We can expand this out by putting in coefficients for all the equations.
+1*a+0*b = 0*c+1*d
+4*a+0*b = 2*c+0*d
+0*a+2*b = 1*c+2*d
+
+This system is underdetermined because we have 4 unknowns and only 3 equations. To solve it, we assume that one of the coefficients is one. I typically assume the last coefficient is 1 and then move all constant terms to the right and all non-constant terms to the left. This produces the following:
+1*a+0*b-0*c =1
+4*a+0*b-2*c = 0
+0*a+2*b-1*c = 2
+Hopefully you can see how this has the form Ax=y, where A={{1,0,0},{4,0,-2},{0,2,-1}}, x={a,b,c}, and y={1,0,2}. Given this form, you can use your preferred technique to solve for x.
+
+Put the code in whatever .cpp file you want.
